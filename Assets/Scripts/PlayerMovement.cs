@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerState {
+public enum PlayerState { //enumerator that holds all player states used for animations or doing something ie states
     walk,
     attack,
     interact
@@ -18,8 +18,12 @@ public class PlayerMovement : MonoBehaviour{
 
     // Start is called before the first frame update
     void Start(){
+        currentState = PlayerState.walk; // start on walk state
         myRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        // initalize position as down so that hit boxes arent all on by default
+        animator.SetFloat("moveX", 0); 
+        animator.SetFloat("moveY", -1);
     }
 
     // Update is called once per frame
@@ -55,6 +59,7 @@ public class PlayerMovement : MonoBehaviour{
     }
 
     void MoveCharacter(){
+        change.Normalize(); // normalizes speed so the character isnt fast when walking diagonally
         myRigidbody.MovePosition(
             transform.position += change * speed * Time.deltaTime); // change postion by change times speed so not choppy times time that has passed since the last frame
     }
