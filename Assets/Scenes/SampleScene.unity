@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 112805563}
   m_Layer: 0
   m_Name: right hit box
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,9 +266,10 @@ PolygonCollider2D:
       - {x: -0.00928241, y: -0.56031287}
       - {x: 0.14700547, y: -0.7055254}
       - {x: 0.40257964, y: -0.7779698}
-      - {x: 0.6291821, y: -0.61238277}
-      - {x: 0.62034124, y: -0.21575671}
-      - {x: 0.55778825, y: 0.28831887}
+      - {x: 0.78743434, y: -0.66823655}
+      - {x: 0.8900293, y: -0.5280361}
+      - {x: 0.8903009, y: -0.1319761}
+      - {x: 0.7905121, y: 0.30693674}
 --- !u!114 &112805563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,9 +279,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 112805560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53ea8b581e54f894f92f903731c75ccf, type: 3}
+  m_Script: {fileID: 11500000, guid: 134274526d0f2304c866db65d53d542a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 2
+  knockTime: 0.2
 --- !u!1 &202682232
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +297,7 @@ GameObject:
   - component: {fileID: 202682235}
   m_Layer: 0
   m_Name: left hit box
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -339,11 +342,16 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.34152243, y: 0.24451095}
-      - {x: -0.65594125, y: 0.26900598}
-      - {x: -0.6923273, y: -0.42577368}
-      - {x: -0.49642485, y: -0.8325803}
+      - {x: -0.7769577, y: 0.29693285}
+      - {x: -0.88781536, y: -0.36061096}
+      - {x: -0.8270322, y: -0.4538084}
+      - {x: -0.86727595, y: -0.49498904}
+      - {x: -0.5706434, y: -0.877512}
+      - {x: -0.5150428, y: -1.0094506}
+      - {x: 0.07039121, y: -0.92933}
+      - {x: 0.10360189, y: -0.9093765}
       - {x: 0.06421215, y: -0.7986679}
-      - {x: 0.050708026, y: -0.82971555}
+      - {x: 0.10656181, y: -0.9134962}
       - {x: 0.22556467, y: -0.6123828}
       - {x: 0.25812048, y: -0.52623165}
       - {x: 0.17486912, y: -0.17739353}
@@ -356,9 +364,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 202682232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53ea8b581e54f894f92f903731c75ccf, type: 3}
+  m_Script: {fileID: 11500000, guid: 134274526d0f2304c866db65d53d542a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 2
+  knockTime: 0.2
 --- !u!1 &286418273
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +382,7 @@ GameObject:
   - component: {fileID: 286418276}
   m_Layer: 0
   m_Name: up hit box
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -417,10 +427,10 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0.4139665, y: -0.30399477}
-      - {x: 0.6430008, y: -0.18743901}
-      - {x: 0.6357939, y: 0.47761744}
-      - {x: 0.5946921, y: 0.5371097}
-      - {x: -0.30406973, y: 0.69332194}
+      - {x: 0.79194397, y: -0.15020318}
+      - {x: 0.81266403, y: 0.50554436}
+      - {x: 0.65054595, y: 0.75121564}
+      - {x: -0.32268763, y: 0.8515742}
       - {x: -0.59866726, y: 0.04289083}
       - {x: -0.38185236, y: -0.16704464}
       - {x: -0.22556442, y: -0.21911472}
@@ -436,9 +446,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 286418273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53ea8b581e54f894f92f903731c75ccf, type: 3}
+  m_Script: {fileID: 11500000, guid: 134274526d0f2304c866db65d53d542a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 2
+  knockTime: 0.2
 --- !u!1 &288655644
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,20 +688,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &453642876
-MonoBehaviour:
+--- !u!61 &453642876
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453642869}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 134274526d0f2304c866db65d53d542a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrust: 5
-  knockTime: 0.4
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0076062083, y: -0.13691187}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 2}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.61968946, y: 1.0111923}
+  m_EdgeRadius: 0
 --- !u!1 &512797451
 GameObject:
   m_ObjectHideFlags: 0
@@ -18207,7 +18231,7 @@ GameObject:
   - component: {fileID: 1742118823}
   m_Layer: 0
   m_Name: down hit box
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18254,8 +18278,10 @@ PolygonCollider2D:
     - - {x: 0.4139665, y: -0.30399477}
       - {x: -0.40756136, y: -0.082865566}
       - {x: -0.5784865, y: -0.18774292}
-      - {x: -0.36010358, y: -0.76762044}
-      - {x: -0.001037769, y: -0.94355637}
+      - {x: -0.66604084, y: -0.21036306}
+      - {x: -0.7164736, y: -0.6226922}
+      - {x: -0.5276648, y: -0.9351817}
+      - {x: -0.010346703, y: -1.0645728}
       - {x: 0.5360396, y: -0.9539052}
       - {x: 0.40255082, y: -0.30158353}
 --- !u!114 &1742118823
@@ -18267,9 +18293,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1742118820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53ea8b581e54f894f92f903731c75ccf, type: 3}
+  m_Script: {fileID: 11500000, guid: 134274526d0f2304c866db65d53d542a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 2
+  knockTime: 0.2
 --- !u!1 &1822920061
 GameObject:
   m_ObjectHideFlags: 0
@@ -18611,6 +18639,8 @@ GameObject:
   - component: {fileID: 2142799287}
   - component: {fileID: 2142799286}
   - component: {fileID: 2142799288}
+  - component: {fileID: 2142799289}
+  - component: {fileID: 2142799290}
   m_Layer: 0
   m_Name: log
   m_TagString: enemy
@@ -18761,6 +18791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596fb657f5bd16e418366e3a88179b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   health: 2
   enemyName: Loggerson
   baseAttack: 1
@@ -18770,6 +18801,46 @@ MonoBehaviour:
   attackRadius: 1.2
   homePosition: {fileID: 0}
   anim: {fileID: 0}
+--- !u!61 &2142799289
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142799282}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.029481411, y: -0.10318291}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8404188, y: 1.341594}
+  m_EdgeRadius: 0
+--- !u!114 &2142799290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142799282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134274526d0f2304c866db65d53d542a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 4
+  knockTime: 0.2
 --- !u!1001 &1498904574588916008
 PrefabInstance:
   m_ObjectHideFlags: 0

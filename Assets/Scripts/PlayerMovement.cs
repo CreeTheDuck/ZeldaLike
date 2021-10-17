@@ -5,7 +5,9 @@ using UnityEngine;
 public enum PlayerState { //enumerator that holds all player states used for animations or doing something ie states
     walk,
     attack,
-    interact
+    interact,
+    stagger,
+    idle
 }
 
 public class PlayerMovement : MonoBehaviour{
@@ -32,10 +34,10 @@ public class PlayerMovement : MonoBehaviour{
         change.x = Input.GetAxisRaw("Horizontal"); //defined by defualt in unity
         change.y = Input.GetAxisRaw("Vertical"); //Raw snaps directly so it doesnt feel floaty
         //Debug.Log(change); //send change to the console so you can see what the player is doing
-        if (Input.GetButtonDown("attack") && currentState != PlayerState.attack) {
+        if (Input.GetButtonDown("attack") && (currentState != PlayerState.attack) && (currentState != PlayerState.stagger)) {
             StartCoroutine(AttackCo());
         }
-        else if( currentState == PlayerState.walk) {
+        else if((currentState == PlayerState.walk) || (currentState == PlayerState.idle)) {
             UpdateAnimationAndMove();
         }
     }
@@ -62,5 +64,18 @@ public class PlayerMovement : MonoBehaviour{
         change.Normalize(); // normalizes speed so the character isnt fast when walking diagonally
         myRigidbody.MovePosition(
             transform.position += change * speed * Time.deltaTime); // change postion by change times speed so not choppy times time that has passed since the last frame
+    }
+
+    public void Knock(float knockTime) {
+        StartCoroutine(knockCo(knockTime));
+    }
+
+    private IEnumerator knockCo(float knockTime) { // so after hit they dont fly off forever
+        if ((myRigidbody != null)) {// if not dead
+            yield return new WaitForSeconds(knockTime);
+            myRigidbody.velocity = Vector2.zero; // turn off veloctiy
+            currentState = PlayerState.idle;
+            myRigidbody.velocity = Vector2.zero;
+        }
     }
 }
