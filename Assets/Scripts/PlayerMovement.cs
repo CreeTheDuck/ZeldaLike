@@ -2,8 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerState {
+    walk,
+    attack,
+    interact
+}
+
 public class PlayerMovement : MonoBehaviour{
 
+    public PlayerState currentState;
     public float speed;
     private Rigidbody2D myRigidbody;
     private Vector3 change;
@@ -21,7 +28,21 @@ public class PlayerMovement : MonoBehaviour{
         change.x = Input.GetAxisRaw("Horizontal"); //defined by defualt in unity
         change.y = Input.GetAxisRaw("Vertical"); //Raw snaps directly so it doesnt feel floaty
         //Debug.Log(change); //send change to the console so you can see what the player is doing
-        UpdateAnimationAndMove();
+        if (Input.GetButtonDown("attack") && currentState != PlayerState.attack) {
+            StartCoroutine(AttackCo());
+        }
+        else if( currentState == PlayerState.walk) {
+            UpdateAnimationAndMove();
+        }
+    }
+
+    private IEnumerator AttackCo() {
+        animator.SetBool("attacking", true);
+        currentState = PlayerState.attack;
+        yield return null; // wait one frame
+        animator.SetBool("attacking", false);
+        yield return new WaitForSeconds(.3f); // 1/3 of a second
+        currentState = PlayerState.walk; // reset state
     }
 
     void UpdateAnimationAndMove(){
