@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1498904574742500455, guid: 6ea3d9c2b1d2f594ba3e359d786cdfb0, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1498904574742500455, guid: 6ea3d9c2b1d2f594ba3e359d786cdfb0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -503,7 +503,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &453642869
 GameObject:
@@ -519,6 +519,7 @@ GameObject:
   - component: {fileID: 453642874}
   - component: {fileID: 453642873}
   - component: {fileID: 453642875}
+  - component: {fileID: 453642876}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -675,6 +676,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &453642876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453642869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134274526d0f2304c866db65d53d542a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 5
+  knockTime: 0.4
 --- !u!1 &512797451
 GameObject:
   m_ObjectHideFlags: 0
@@ -18598,7 +18613,7 @@ GameObject:
   - component: {fileID: 2142799288}
   m_Layer: 0
   m_Name: log
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18767,7 +18782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1498904574742500455, guid: 6ea3d9c2b1d2f594ba3e359d786cdfb0, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1498904574742500455, guid: 6ea3d9c2b1d2f594ba3e359d786cdfb0, type: 3}
       propertyPath: m_LocalPosition.x
