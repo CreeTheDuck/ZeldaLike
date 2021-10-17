@@ -18767,7 +18767,7 @@ MonoBehaviour:
   moveSpeed: 1.5
   target: {fileID: 0}
   chaseRadius: 4
-  attackRadius: 2
+  attackRadius: 1.2
   homePosition: {fileID: 0}
   anim: {fileID: 0}
 --- !u!1001 &1498904574588916008
