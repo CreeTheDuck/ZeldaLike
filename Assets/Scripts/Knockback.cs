@@ -11,7 +11,6 @@ public class Knockback : MonoBehaviour {
         if (other.gameObject.CompareTag("enemy")) {
             Rigidbody2D enemy = other.GetComponent<Rigidbody2D>();
             if (enemy != null) {
-                enemy.isKinematic = false; // so we can move the enemy
                 Vector2 difference = enemy.transform.position - transform.position;
                 difference = difference.normalized * thrust; // normalize the vector so we dont go faster diagonally
                 enemy.AddForce(difference, ForceMode2D.Impulse);
@@ -24,7 +23,6 @@ public class Knockback : MonoBehaviour {
         if (enemy != null) {// if not dead
             yield return new WaitForSeconds(knockTime);
             enemy.velocity = Vector2.zero; // turn off veloctiy
-            enemy.isKinematic = true;
         }
     }
 }

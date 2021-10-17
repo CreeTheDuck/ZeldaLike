@@ -18736,7 +18736,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142799282}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -18746,7 +18746,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &2142799288
@@ -18764,11 +18764,12 @@ MonoBehaviour:
   health: 2
   enemyName: Loggerson
   baseAttack: 1
-  moveSpeed: 1
+  moveSpeed: 1.5
   target: {fileID: 0}
   chaseRadius: 4
-  attackRadius: 1
+  attackRadius: 2
   homePosition: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!1001 &1498904574588916008
 PrefabInstance:
   m_ObjectHideFlags: 0
