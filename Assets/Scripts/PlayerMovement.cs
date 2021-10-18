@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour{
     private Animator animator;
     public FloatValue currentHealth;
     public Signal playerHealthSignal;
+    public VectorValue startingPosition;
 
     // Start is called before the first frame update
     void Start(){
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour{
         // initalize position as down so that hit boxes arent all on by default
         animator.SetFloat("moveX", 0); 
         animator.SetFloat("moveY", -1);
+        transform.position = startingPosition.initialValue;
     }
 
     // Update is called once per frame

@@ -53,6 +53,7 @@
     <UnityVersion>2020.3.20f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\HeartManager.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Signal.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
@@ -65,7 +66,8 @@
     <Compile Include="Assets\Scripts\pot.cs" />
     <Compile Include="Assets\Scripts\Knockback.cs" />
     <Compile Include="Assets\Scripts\RoomMove.cs" />
-    <Compile Include="Assets\Scripts\HeartManager.cs" />
+    <Compile Include="Assets\Scripts\SceneTransition.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\VectorValue.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
