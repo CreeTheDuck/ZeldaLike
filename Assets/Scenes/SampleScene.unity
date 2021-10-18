@@ -12233,6 +12233,7 @@ MonoBehaviour:
   halfHeart: {fileID: -3276687688264177478, guid: 8210c06a448d09d4f9ded23c2314051a, type: 3}
   emptyHeart: {fileID: -9053378900703536071, guid: 8210c06a448d09d4f9ded23c2314051a, type: 3}
   heartContainers: {fileID: 11400000, guid: 6bb3b7582ea96ce44a66b4ffc4ff25ca, type: 2}
+  playerCurrentHealth: {fileID: 11400000, guid: d6e432b6c63f9f9468cb96f1d244162a, type: 2}
 --- !u!1 &1346078229
 GameObject:
   m_ObjectHideFlags: 0
@@ -18593,7 +18594,19 @@ MonoBehaviour:
   signal: {fileID: 11400000, guid: b6fb7d72260ab21479ac23c0ef062eb7, type: 2}
   signalEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1314934333}
+        m_TargetAssemblyTypeName: HeartManager, Assembly-CSharp
+        m_MethodName: UpdateHearts
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1604538048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19407,7 +19420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 2
   knockTime: 0.2
-  damage: 0
+  damage: 1
 --- !u!1001 &1498904574588916008
 PrefabInstance:
   m_ObjectHideFlags: 0
