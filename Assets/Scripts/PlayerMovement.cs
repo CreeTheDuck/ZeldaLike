@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour{
     private Rigidbody2D myRigidbody;
     private Vector3 change;
     private Animator animator;
+    public FloatValue currentHealth;
+    public Signal playerHealthSignal;
 
     // Start is called before the first frame update
     void Start(){
@@ -66,8 +68,13 @@ public class PlayerMovement : MonoBehaviour{
             transform.position += change * speed * Time.deltaTime); // change postion by change times speed so not choppy times time that has passed since the last frame
     }
 
-    public void Knock(float knockTime) {
-        StartCoroutine(knockCo(knockTime));
+    public void Knock(float knockTime, float damage) {
+        currentHealth.initialValue -= damage; // take damage
+
+        if (currentHealth.initialValue > 0) {// if alive do knockback
+            playerHealthSignal.Raise();
+            StartCoroutine(knockCo(knockTime));
+        }
     }
 
     private IEnumerator knockCo(float knockTime) { // so after hit they dont fly off forever
