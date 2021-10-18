@@ -50,11 +50,11 @@ public class Log : Enemy{
     private void changeAnim(Vector2 direction) {
         //Debug.Log(direction);
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) {
-            Debug.Log("x is greater");
+            //Debug.Log("x is greater");
             if (direction.x > 0) { SetAnimFloat(Vector2.right); }
             if (direction.x < 0) { SetAnimFloat(Vector2.left); }
         } else if(Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) {
-            Debug.Log("y is greater");
+            //Debug.Log("y is greater");
             if (direction.y > 0) { SetAnimFloat(Vector2.up); }
             if (direction.y < 0) { SetAnimFloat(Vector2.down); }
         }

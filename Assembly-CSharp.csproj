@@ -60,8 +60,9 @@
     <Compile Include="Assets\Scripts\PlayerHit.cs" />
     <Compile Include="Assets\Scripts\Sign.cs" />
     <Compile Include="Assets\Scripts\pot.cs" />
-    <Compile Include="Assets\Scripts\RoomMove.cs" />
     <Compile Include="Assets\Scripts\Knockback.cs" />
+    <Compile Include="Assets\Scripts\RoomMove.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\FloatValue.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
