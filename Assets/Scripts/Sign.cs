@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Sign : MonoBehaviour {
+
+    public Signal contextOn;
+    public Signal contextOff;
     public GameObject dialogBox;
     public Text dialogText;
     public string dialog;
@@ -30,6 +33,7 @@ public class Sign : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
             //Debug.Log("Player in range");
+            contextOn.Raise(); // show context clue sign over player head when in range
             playerInRange = true;
         }
     }
@@ -37,6 +41,7 @@ public class Sign : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Player")) {
             //Debug.Log("Player out of range");
+            contextOff.Raise();
             playerInRange = false;
             dialogBox.SetActive(false);
         }
