@@ -64,12 +64,13 @@
     <Compile Include="Assets\Scripts\ScriptableObjects\VectorValue.cs" />
     <Compile Include="Assets\Scripts\Objects\SceneTransition.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerHit.cs" />
+    <Compile Include="Assets\Scripts\Objects\Interactable.cs" />
     <Compile Include="Assets\Scripts\Objects\Sign.cs" />
     <Compile Include="Assets\Scripts\SignalListener.cs" />
     <Compile Include="Assets\Scripts\Objects\pot.cs" />
     <Compile Include="Assets\Scripts\GameStuff\Knockback.cs" />
     <Compile Include="Assets\Scripts\Objects\RoomMove.cs" />
-    <Compile Include="Assets\Scripts\Objects\Interactable.cs" />
+    <Compile Include="Assets\Scripts\Objects\TreasureChest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
