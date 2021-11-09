@@ -50,6 +50,7 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 1150d1b083de71644aa31329490468e6, type: 3}
+  - {fileID: 21300000, guid: d1dcf735254434f489d3011afc820aaf, type: 3}
   - {fileID: 3059174765694063163, guid: b5bafa65e2409154eada02ae4f727f1d, type: 3}
   - {fileID: -34017176892466219, guid: b5bafa65e2409154eada02ae4f727f1d, type: 3}
   - {fileID: 2376815873980901129, guid: b5bafa65e2409154eada02ae4f727f1d, type: 3}
@@ -1682,6 +1683,7 @@ SpriteAtlas:
   - {fileID: 5559694988392259305, guid: 374d125cce590fa4d94012d786164f9f, type: 3}
   m_PackedSpriteNamesToIndex:
   - NPC_test
+  - key
   - log_8
   - log_9
   - log_2

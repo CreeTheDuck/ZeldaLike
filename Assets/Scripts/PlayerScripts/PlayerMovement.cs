@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour{
     public FloatValue currentHealth;
     public Signal playerHealthSignal;
     public VectorValue startingPosition;
+    public Inventory playerInventory;
+    public SpriteRenderer receivedItemSprite;
 
     // Start is called before the first frame update
     void Start(){
@@ -34,6 +36,10 @@ public class PlayerMovement : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
+        // Is the player in an interaction
+        if(currentState == PlayerState.interact) {
+            return; // dont look for inputs as player cant move
+        }
         change = Vector3.zero; //every frame reset how much the player movement has changed
         change.x = Input.GetAxisRaw("Horizontal"); //defined by defualt in unity
         change.y = Input.GetAxisRaw("Vertical"); //Raw snaps directly so it doesnt feel floaty
@@ -52,7 +58,25 @@ public class PlayerMovement : MonoBehaviour{
         yield return null; // wait one frame
         animator.SetBool("attacking", false);
         yield return new WaitForSeconds(.3f); // 1/3 of a second
-        currentState = PlayerState.walk; // reset state
+        if (currentState == PlayerState.interact) {
+            currentState = PlayerState.walk; // reset state
+        }
+    }
+
+    public void RaiseItem() {
+        if(playerInventory.currentItem != null) {
+            if (currentState != PlayerState.interact) {
+                animator.SetBool("recieveItem", true);
+                currentState = PlayerState.interact;
+                receivedItemSprite.sprite = playerInventory.currentItem.itemSprite;
+            }
+            else {
+                animator.SetBool("recieveItem", false);
+                currentState = PlayerState.idle;
+                receivedItemSprite.sprite = null;
+                playerInventory.currentItem = null;
+            }
+        }
     }
 
     void UpdateAnimationAndMove(){
